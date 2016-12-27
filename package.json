@@ -1,0 +1,30 @@
+{
+  "name": "iot-discovery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard && mocha --recursive --reporter spec",
+    "test-watch": "standard && mocha --watch --recursive --reporter spec",
+    "run": "node index.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "dgram": "^1.0.1",
+    "guid": "0.0.12",
+    "standard": "^8.6.0",
+    "winston": "^2.3.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0"
+  },
+  "standard": {
+    "globals": [
+      "describe",
+      "it",
+      "beforeEach"
+    ]
+  }
+}
