@@ -2,6 +2,10 @@
 
 Find and communicate with network nodes over UDP.
 
+## Install
+
+`npm install --save udp-node`
+
 ## Sample
 
 In the `sample` folder you'll find the basics of finding nodes and sending custom messages.
