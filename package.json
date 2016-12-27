@@ -1,14 +1,17 @@
 {
-  "name": "iot-discovery",
+  "name": "udp-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "Find and communicate with network nodes over UDP.",
   "main": "index.js",
   "scripts": {
     "test": "standard && mocha --recursive --reporter spec",
     "test-watch": "standard && mocha --watch --recursive --reporter spec",
     "run": "node index.js"
   },
-  "author": "",
+  "author": {
+    "name": "Alberto Miranda",
+    "email": "b3rt.js@gmail.com"
+  },
   "license": "MIT",
   "dependencies": {
     "dgram": "^1.0.1",
