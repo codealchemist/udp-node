@@ -12,7 +12,7 @@ const artFile = path.join(__dirname, '/ascii-art.txt')
 const art = fs.readFileSync(artFile, 'utf8')
 console.info(art)
 
-module.exports = class UdpNode {
+class UdpNode {
   constructor () {
     this.events = {}
     this.defaultPort = 3024
@@ -348,5 +348,59 @@ module.exports = class UdpNode {
   close (callback) {
     winston.log('debug', `[ ${this.config.name} (${this.config.type}) ]--> CLOSE`)
     this.client.close(callback)
+  }
+}
+
+// Shield UdpNode behind a facade.
+// This hides methods and properties that should not be public.
+module.exports = function UdpNodeFacade () {
+  const node = new UdpNode()
+
+  this.guid = node.guid
+
+  this.set = (config) => {
+    node.set(config)
+    return this
+  }
+
+  this.broadcast = (params) => {
+    node.broadcast(params)
+    return this
+  }
+
+  this.ping = (params) => {
+    node.ping(params)
+    return this
+  }
+
+  this.send = (message, callback) => {
+    node.send(message, callback)
+    return this
+  }
+
+  this.setLogLevel = (level) => {
+    node.setLogLevel(level)
+    return this
+  }
+
+  this.onNode = (callback) => {
+    node.onNode(callback)
+    return this
+  }
+
+  this.on = (type, callback) => {
+    return node.on(type, callback)
+  }
+
+  this.off = (type, index) => {
+    node.off(type, index)
+  }
+
+  this.close = (callback) => {
+    node.close(callback)
+  }
+
+  this.getEvents = () => {
+    return node.events
   }
 }

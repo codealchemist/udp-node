@@ -186,7 +186,7 @@ describe('udp-node', () => {
     node1
       .on('hello', () => {
         node1.off('hello')
-        expect(node1.events['hello']).to.equal(undefined)
+        expect(node1.getEvents()['hello']).to.equal(undefined)
 
         node1.close()
         node2.close()
@@ -231,7 +231,7 @@ describe('udp-node', () => {
 
     function onHello (message, rinfo) {
       node1.off('hello', listnerId)
-      expect(node1.events['hello']).to.eql([])
+      expect(node1.getEvents()['hello']).to.eql([])
 
       node1.close()
       node2.close()
