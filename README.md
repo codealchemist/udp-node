@@ -57,6 +57,12 @@ six
   })
 ```
 
+## Properties
+
+### guid
+
+A guid is automatically set for each node when the node is constructed.
+This means that it will change each time you do `new UdpNode()`.
 
 
 ## Methods
