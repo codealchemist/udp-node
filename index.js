@@ -8,9 +8,9 @@ const winston = require('winston')
 winston.level = 'debug'
 
 // print ascii art
-const artFile = path.join(__dirname, '/ascii-art.txt')
-const art = fs.readFileSync(artFile, 'utf8')
-console.info(art)
+// const artFile = path.join(__dirname, '/ascii-art.txt')
+// const art = fs.readFileSync(artFile, 'utf8')
+// console.info(art)
 
 class UdpNode {
   constructor () {
