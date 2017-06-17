@@ -248,6 +248,7 @@ class UdpNode {
    * Called each time a new node is found.
    *
    * @param  {Function} callback
+   * @returns {object} this
    */
   onNode (callback) {
     this.onNodeCallback = callback
@@ -306,7 +307,7 @@ class UdpNode {
    *
    * @param  {string} type
    * @param  {Function} callback
-   * @return {int} listener id, can be used to remove it with the off method
+   * @returns {object} this
    */
   on (type, callback) {
     // validate params
@@ -316,7 +317,7 @@ class UdpNode {
 
     if (!this.events[type]) this.events[type] = []
     this.events[type].push(callback)
-    return this.events.length - 1
+    return this
   }
 
   /**
