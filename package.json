@@ -6,6 +6,7 @@
   "scripts": {
     "test": "standard && mocha --recursive --reporter spec",
     "test-watch": "standard && mocha --watch --recursive --reporter spec",
+    "test-focus": "standard-focus",
     "run": "node index.js"
   },
   "author": {
@@ -16,12 +17,12 @@
   "dependencies": {
     "dgram": "^1.0.1",
     "guid": "0.0.12",
-    "standard": "^8.6.0",
     "winston": "^2.3.0"
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "mocha": "^3.2.0"
+    "mocha": "^3.2.0",
+    "standard-focus": "^1.1.2"
   },
   "repository": "codealchemist/udp-node",
   "standard": {

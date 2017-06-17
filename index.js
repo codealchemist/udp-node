@@ -1,16 +1,9 @@
 'use strict'
 
 const dgram = require('dgram')
-const path = require('path')
-const fs = require('fs')
 const Guid = require('guid')
 const winston = require('winston')
 winston.level = 'debug'
-
-// print ascii art
-// const artFile = path.join(__dirname, '/ascii-art.txt')
-// const art = fs.readFileSync(artFile, 'utf8')
-// console.info(art)
 
 class UdpNode {
   constructor () {
@@ -269,6 +262,7 @@ class UdpNode {
     if (!this.isNodeOfInterest(message)) return
 
     winston.log('debug', `[ ${this.config.name} (${this.config.type}) ]--> got PING:`, JSON.stringify(message))
+    if (typeof this.onNodeCallback === 'function') this.onNodeCallback(message, rinfo)
     this.pong(message, rinfo)
   }
 
@@ -284,6 +278,7 @@ class UdpNode {
     if (!this.isNodeOfInterest(message)) return
 
     winston.log('debug', `[ ${this.config.name} (${this.config.type}) ]--> got BROADCAST:`, JSON.stringify(message))
+    if (typeof this.onNodeCallback === 'function') this.onNodeCallback(message, rinfo)
     this.pong(message, rinfo)
   }
 

@@ -1,6 +1,13 @@
-# udp-node
+# udp-node [![Build Status](https://travis-ci.org/codealchemist/udp-node.svg?branch=master)](https://travis-ci.org/codealchemist/udp-node)
 
 Find and communicate with network nodes over UDP.
+
+## About
+
+**udp-node** provides a programatic way of discovering and interacting with other
+nodes over UDP. This interaction can be easily achieved using provided methods, 
+like `ping`, `broadcast` and `onNode` and you can also create your custom events
+using the `on` and `send` methods.
 
 ## Install
 
@@ -111,12 +118,19 @@ Sends a custom message.
 
 After the message is sent passed callback is called.
 
+### onNode(callback)
+
+Called when a node of interest if found, either by a response to our broadcast or ping
+or when the other node send us a broadcast or ping.
+
 ### on(type, callback)
 
 Adds a listener for a custom message.
 When a message of the specified type is recieved calls the passed callback.
 
-Returns the index of the added listener, which can be used with the off method to turn it off.
+**CHANGE** from previous version:
+
+Returns a ref to `this` to allow chaining.
 
 Params:
 - type: string, required; any string that identifies the message type
